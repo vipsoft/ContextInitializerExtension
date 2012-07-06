@@ -1,0 +1,28 @@
+{
+    "name": "vipsoft/context-initializer-extension",
+    "type": "behat-extension",
+    "description": "Content initializer extension for Behat",
+    "keywords": ["behat", "bdd", "context", "initializer"],
+    "homepage": "http://github.com/vipsoft/",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Anthon Pang",
+            "email": "apang@softwaredevelopment.ca"
+        }
+    ],
+
+    "require": {
+        "php":                      ">=5.3.6",
+        "behat/behat":              ">=2.4.0,<2.5.0-dev",
+        "symfony/framework-bundle": ">=2.0.0,<2.2.0-dev"
+    },
+
+    "require-dev": {
+        "symfony/symfony": "dev-master"
+    },
+
+    "autoload": {
+        "psr-0": { "VIPSoft\\ContextInitializerExtension": "src/" }
+    }
+}

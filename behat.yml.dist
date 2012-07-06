@@ -1,0 +1,4 @@
+default:
+  extensions:
+    VIPSoft\ContextInitializerExtension\Extension:
+      classes: ~
