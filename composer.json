@@ -1,7 +1,7 @@
 {
     "name": "vipsoft/context-initializer-extension",
     "type": "behat-extension",
-    "description": "Content initializer extension for Behat",
+    "description": "Context initializer extension for Behat",
     "keywords": ["behat", "bdd", "context", "initializer"],
     "homepage": "http://github.com/vipsoft/",
     "license": "MIT",

@@ -19,18 +19,15 @@ use Behat\Behat\Context\Initializer\InitializerInterface,
 class ContextInitializer implements InitializerInterface
 {
     private $container;
-    private $parameters;
 
     /**
      * Constructor
      *
      * @param ContainerInterface $container  service container
-     * @param array              $parameters config parameters for this extension
      */
-    public function __construct($container, $parameters)
+    public function __construct($container)
     {
         $this->container = $container;
-        $this->parameters = $parameters;
     }
 
     /**
@@ -46,7 +43,9 @@ class ContextInitializer implements InitializerInterface
      */
     public function initialize(ContextInterface $context)
     {
-        foreach ($this->parameters['classes'] as $name => $class) {
+        $classes = $this->container->getParameter('behat.contextinitializer.classes');
+
+        foreach ($classes as $name => $class) {
             if (substr($class, 0, 1) !== '\\') {
                 $class = '\\' . $class;
             }

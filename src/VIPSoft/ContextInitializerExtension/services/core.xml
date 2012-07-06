@@ -10,7 +10,7 @@
     <services>
         <service id="behat.contextinitializer.service.contextinitializer" class="%behat.contextinitializer.service.contextinitializer.class%">
             <argument type="service" id="service_container" />
-            <argument>%behat.contextinitializer.classes%</argument>
+            <tag name="behat.context.initializer" />
         </service>
     </services>
 
