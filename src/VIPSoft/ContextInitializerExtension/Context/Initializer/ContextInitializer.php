@@ -50,7 +50,7 @@ class ContextInitializer implements InitializerInterface
                 $class = '\\' . $class;
             }
 
-            $context->useContext($name, new $class($context));
+            $context->useContext($name, new $class());
         }
     }
 }

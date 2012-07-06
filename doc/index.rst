@@ -57,7 +57,7 @@ Instead of:
 
 .. code-block:: php
 
-    $this->useContext('MySubContext', new \Acme\UserBundle\Context\MySubContext($this));
+    $this->useContext('MySubContext', new \Acme\UserBundle\Context\MySubContext());
 
 You would use:
 

@@ -40,7 +40,7 @@ class Extension implements ExtensionInterface
             children()->
                 arrayNode('classes')->
                     useAttributeAsKey('classes')->
-                        prototype('variable')->
+                    prototype('variable')->
                     end()->
                 end()->
             end()->
