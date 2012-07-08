@@ -46,11 +46,42 @@ class ContextInitializer implements InitializerInterface
         $classes = $this->container->getParameter('behat.contextinitializer.classes');
 
         foreach ($classes as $name => $class) {
-            if (substr($class, 0, 1) !== '\\') {
-                $class = '\\' . $class;
-            }
+            $instance = $this->newInstance($class);
 
-            $context->useContext($name, new $class());
+            $context->useContext($name, $instance);
         }
+    }
+
+    /**
+     * Prefix root namespace
+     *
+     * @param string
+     *
+     * @return string
+     */
+    private function prefixRootNamespace($className)
+    {
+        if (substr($className, 0, 1) !== '\\') {
+            $className = '\\' . $className;
+        }
+
+        return $className;
+    }
+
+    /**
+     * Instantiate subcontext
+     *
+     * @param string|array $classInfo
+     *
+     * @return object|null
+     */
+    private function newInstance($classInfo)
+    {
+        $className = is_array($classInfo) ? array_shift($classInfo) : (is_string($classInfo) ? $classInfo : '');
+        $parameters = is_array($classInfo) ? $classInfo : $this->container->getParameter('behat.context.parameters');
+
+        $reflection = new \ReflectionClass($this->prefixRootNamespace($className));
+
+        return $reflection->newInstanceArgs($parameters);
     }
 }

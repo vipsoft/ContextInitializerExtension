@@ -51,25 +51,51 @@ Activate extension in your **behat.yml** and specify your subcontext classes:
         VIPSoft\ContextInitializerExtension\Extension:
           classes: ~
 
-Settings
---------
-Instead of:
+Example 1
+---------
+The following constructor couples the main context to a subcontext:
 
 .. code-block:: php
 
-    $this->useContext('MySubContext', new \Acme\UserBundle\Context\MySubContext());
+    class FeatureContext extends BehatContext
+    {
+        public function __construct(array $parameters)
+        {
+            $this->useContext('MySubContextAlias', new \Acme\UserBundle\Context\MySubContext($parameters));
+        }
+    }
 
-You would use:
+We can decouple the main context from the subcontext by replacing the above constructor with this configuration:
 
 .. code-block:: yaml
 
-    # behat-client.yml
+    # behat.yml
     default:
       # ...
       extensions:
         VIPSoft\ContextInitializerExtension\Extension:
           classes:
-            MySubContext: Acme\UserBundle\Context\MySubContext
+            MySubContextAlias: Acme\UserBundle\Context\MySubContext
+
+This is especially desirable when the main context and subcontext are in different bundles.
+
+Example 2
+---------
+By default, *behat.context.parameters* is passed to the subcontext.
+
+To inject custom parameters to the subcontext, use the array format:
+
+.. code-block:: yaml
+
+    # behat.yml
+    default:
+      # ...
+      extensions:
+        VIPSoft\ContextInitializerExtension\Extension:
+          classes:
+            MySubContextAlias:
+              - Acme\UserBundle\Context\MySubContext
+              - %behat.context.parameters%
 
 Copyright
 =========
