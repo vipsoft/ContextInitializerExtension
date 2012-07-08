@@ -78,9 +78,13 @@ class ContextInitializer implements InitializerInterface
     private function newInstance($classInfo)
     {
         $className = is_array($classInfo) ? array_shift($classInfo) : (is_string($classInfo) ? $classInfo : '');
-        $parameters = is_array($classInfo) ? $classInfo : $this->container->getParameter('behat.context.parameters');
+        $parameters = is_array($classInfo) ? $classInfo : array($this->container->getParameter('behat.context.parameters'));
 
         $reflection = new \ReflectionClass($this->prefixRootNamespace($className));
+
+        if (!$reflection->hasMethod('__construct')) {
+            return $reflection->newInstanceWithoutConstructor();
+        }
 
         return $reflection->newInstanceArgs($parameters);
     }
