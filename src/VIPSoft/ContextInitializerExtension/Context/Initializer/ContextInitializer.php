@@ -83,7 +83,7 @@ class ContextInitializer implements InitializerInterface
         $reflection = new \ReflectionClass($this->prefixRootNamespace($className));
 
         if (!$reflection->hasMethod('__construct')) {
-            return $reflection->newInstanceWithoutConstructor();
+            $parameters = array();
         }
 
         return $reflection->newInstanceArgs($parameters);
