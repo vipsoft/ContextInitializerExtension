@@ -44,7 +44,7 @@ Activate extension in your **behat.yml** and specify your subcontext classes:
 
 .. code-block:: yaml
 
-    # behat-client.yml
+    # behat.yml
     default:
       # ...
       extensions:
