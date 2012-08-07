@@ -97,6 +97,10 @@ To inject custom parameters to the subcontext, use the array format:
               - Acme\UserBundle\Context\MySubContext
               - %behat.context.parameters%
 
+Source
+======
+`Github <https://github.com/vipsoft/ContextInitializerExtension>`_
+
 Copyright
 =========
 Copyright (c) 2012 Anthon Pang.  See **LICENSE** for details.
@@ -104,3 +108,4 @@ Copyright (c) 2012 Anthon Pang.  See **LICENSE** for details.
 Contributors
 ============
 * Anthon Pang `(robocoder) <http://github.com/robocoder>`_
+* `Others <https://github.com/vipsoft/ContextInitializerExtension/graphs/contributors>`_

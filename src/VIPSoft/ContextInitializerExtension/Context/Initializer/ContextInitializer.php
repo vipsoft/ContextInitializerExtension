@@ -23,7 +23,7 @@ class ContextInitializer implements InitializerInterface
     /**
      * Constructor
      *
-     * @param ContainerInterface $container  service container
+     * @param ContainerInterface $container service container
      */
     public function __construct($container)
     {
@@ -55,7 +55,7 @@ class ContextInitializer implements InitializerInterface
     /**
      * Prefix root namespace
      *
-     * @param string
+     * @param string $className
      *
      * @return string
      */
