@@ -18,9 +18,6 @@
         "symfony/config": ">=2.0.0,<3.0-dev",
         "symfony/dependency-injection": ">=2.0.0,<3.0-dev"
     },
-    "require-dev": {
-        "symfony/symfony": "dev-master"
-    },
     "autoload": {
         "psr-0": { "VIPSoft\\ContextInitializerExtension": "src/" }
     }
